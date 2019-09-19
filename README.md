@@ -1,3 +1,3 @@
 # Android research assignment
-# Android + Firebase
-# Game
+## Android + Firebase
+## Game
