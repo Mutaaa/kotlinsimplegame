@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "909624794802",
+    "firebase_url": "https://hanoitower-b1a1b.firebaseio.com",
+    "project_id": "hanoitower-b1a1b",
+    "storage_bucket": "hanoitower-b1a1b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909624794802:android:6cb81fd56bb8a985acf3ab",
+        "android_client_info": {
+          "package_name": "com.example.androidgame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "909624794802-qchq3j762q8if41s6112atr0unhfnkvr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvuewRzAnKNHUz4UfpXu4RMjzHV_XWgoU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "909624794802-qchq3j762q8if41s6112atr0unhfnkvr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
