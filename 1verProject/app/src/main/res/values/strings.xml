@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AndroidGame</string>
+    <string name="_0_0">0 : 0</string>
+    <string name="visibility">GONE</string>
+    <string name="start_botton_text">Start</string>
+    <string name="stop_botton_text">Stop</string>
+    <string name="reset_botton_text">Reset</string>
 </resources>
