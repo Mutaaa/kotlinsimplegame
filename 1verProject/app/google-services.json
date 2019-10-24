@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "909624794802",
-    "firebase_url": "https://hanoitower-b1a1b.firebaseio.com",
-    "project_id": "hanoitower-b1a1b",
-    "storage_bucket": "hanoitower-b1a1b.appspot.com"
+    "project_number": "1034946675171",
+    "firebase_url": "https://androidgame-95656.firebaseio.com",
+    "project_id": "androidgame-95656",
+    "storage_bucket": "androidgame-95656.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:909624794802:android:6cb81fd56bb8a985acf3ab",
+        "mobilesdk_app_id": "1:1034946675171:android:b7a7a4825c245c77eda0d6",
         "android_client_info": {
           "package_name": "com.example.androidgame"
         }
       },
       "oauth_client": [
         {
-          "client_id": "909624794802-qchq3j762q8if41s6112atr0unhfnkvr.apps.googleusercontent.com",
+          "client_id": "1034946675171-0q98kqfhvvgob9ppc0unlvjeirnifavd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.androidgame",
+            "certificate_hash": "784d06a6d9a50ea95404487d2e244b9fbd57ef71"
+          }
+        },
+        {
+          "client_id": "1034946675171-olkq5m8au299om9ap05qjenoe6q2hr1q.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBvuewRzAnKNHUz4UfpXu4RMjzHV_XWgoU"
+          "current_key": "AIzaSyBazTr7tfP5La-K73a0rFIKnndYvzZl3lA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "909624794802-qchq3j762q8if41s6112atr0unhfnkvr.apps.googleusercontent.com",
+              "client_id": "1034946675171-olkq5m8au299om9ap05qjenoe6q2hr1q.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
