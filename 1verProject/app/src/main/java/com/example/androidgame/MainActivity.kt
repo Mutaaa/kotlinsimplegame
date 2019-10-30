@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.widget.Button
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
@@ -15,6 +16,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import com.jakewharton.rxbinding3.view.clicks
 import io.reactivex.rxkotlin.merge
+import java.security.SecureRandom
 
 
 private const val MAXIMUM_STOP_WATCH_LIMIT = 3600L
@@ -31,6 +33,9 @@ class MainActivity : AppCompatActivity() {
 
     private val disposable = CompositeDisposable()
     private val displayInitialState by lazy { resources.getString(R.string._0_0) }
+    var boxes: ArrayList<Button> = arrayListOf()
+    private var index16 = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -55,19 +60,36 @@ class MainActivity : AppCompatActivity() {
         }.subscribe(text_view_countdown::setText)
             .let(disposable::add)
 
-
         for (i in 1..16) {
             randomNo.add(i)
         }
-        randomNo.shuffle()
 
-
+        /*
         Log.d("hg", "random number")
         println()
         for (x in randomNo) {
             println(x)
         }
+         */
 
+        boxes = arrayListOf(
+            findViewById(R.id.btn1),
+            findViewById(R.id.btn2),
+            findViewById(R.id.btn3),
+            findViewById(R.id.btn4),
+            findViewById(R.id.btn5),
+            findViewById(R.id.btn6),
+            findViewById(R.id.btn7),
+            findViewById(R.id.btn8),
+            findViewById(R.id.btn9),
+            findViewById(R.id.btn10),
+            findViewById(R.id.btn11),
+            findViewById(R.id.btn12),
+            findViewById(R.id.btn13),
+            findViewById(R.id.btn14),
+            findViewById(R.id.btn15),
+            findViewById(R.id.btn16)
+        )
     }
 
     fun startGame() {
@@ -90,8 +112,11 @@ class MainActivity : AppCompatActivity() {
         btn14.text = randomNo[13].toString()
         btn15.text = randomNo[14].toString()
         btn16.text = randomNo[15].toString()
-    }
 
+        index16 = randomNo.indexOf(16)
+        println(index16)
+        boxes[index16].setVisibility(View.INVISIBLE)
+    }
 
     override fun onDestroy() {
         disposable.clear()
@@ -104,7 +129,6 @@ class MainActivity : AppCompatActivity() {
             button_reset.clicks().map { false })
             .merge()
             .doOnNext(::buttonStateManager)
-
 
     private fun timerObservable(): Observable<String> =
         Observable.interval(0, 1, TimeUnit.SECONDS)
@@ -122,12 +146,10 @@ class MainActivity : AppCompatActivity() {
     private fun buttonStateManager(boolean: Boolean) {
         if(boolean) {
             this.startGame()
+        }else{
+            boxes[index16].setVisibility(View.VISIBLE)
         }
         button_start.isEnabled = !boolean
         button_reset.isEnabled = boolean
     }
-
-
-
-
 }
