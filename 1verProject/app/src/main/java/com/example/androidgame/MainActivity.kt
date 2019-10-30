@@ -2,6 +2,7 @@ package com.example.androidgame
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Window
 import android.view.WindowManager
 import com.google.firebase.database.DatabaseReference
@@ -18,10 +19,14 @@ import io.reactivex.rxkotlin.merge
 private const val MAXIMUM_STOP_WATCH_LIMIT = 3600L
 private const val NUMBER_OF_SECONDS_IN_ONE_MINUTE = 60
 
+
 class MainActivity : AppCompatActivity() {
 
     lateinit var ref: DatabaseReference
     val stupidThing = "glupiaRzecz"
+
+    //initiate array for random number
+    val randomNo = ArrayList<Int>()
 
     private val disposable = CompositeDisposable()
     private val displayInitialState by lazy { resources.getString(R.string._0_0) }
@@ -48,6 +53,19 @@ class MainActivity : AppCompatActivity() {
             else Observable.just(displayInitialState)
         }.subscribe(text_view_countdown::setText)
             .let(disposable::add)
+
+
+        for (i in 1..16) {
+            randomNo.add(i)
+            randomNo.shuffle()
+
+        }
+        Log.d("hg", "random number")
+        println()
+        for (x in randomNo) {
+            println(x)
+        }
+
     }
 
 
