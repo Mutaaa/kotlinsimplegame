@@ -1,5 +1,6 @@
 package com.example.androidgame
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
+import androidx.core.content.res.ResourcesCompat
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
@@ -16,7 +18,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import com.jakewharton.rxbinding3.view.clicks
 import io.reactivex.rxkotlin.merge
-import java.security.SecureRandom
+
 
 
 private const val MAXIMUM_STOP_WATCH_LIMIT = 3600L
@@ -115,7 +117,8 @@ class MainActivity : AppCompatActivity() {
 
         index16 = randomNo.indexOf(16)
         println(index16)
-        boxes[index16].setVisibility(View.INVISIBLE)
+        boxes[index16].setBackgroundColor(Color.parseColor("#87CEFA"))
+        boxes[index16].setText("")
     }
 
     override fun onDestroy() {
@@ -147,7 +150,8 @@ class MainActivity : AppCompatActivity() {
         if(boolean) {
             this.startGame()
         }else{
-            boxes[index16].setVisibility(View.VISIBLE)
+            boxes[index16].setBackgroundResource(android.R.drawable.btn_default)
+            boxes[index16].setText("16")
         }
         button_start.isEnabled = !boolean
         button_reset.isEnabled = boolean
