@@ -3,6 +3,7 @@ package com.example.androidgame
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import com.google.firebase.database.DatabaseReference
@@ -57,15 +58,38 @@ class MainActivity : AppCompatActivity() {
 
         for (i in 1..16) {
             randomNo.add(i)
-            randomNo.shuffle()
-
         }
+        randomNo.shuffle()
+
+
         Log.d("hg", "random number")
         println()
         for (x in randomNo) {
             println(x)
         }
 
+    }
+
+    fun startGame() {
+
+        randomNo.shuffle()
+
+        btn1.text = randomNo[0].toString()
+        btn2.text = randomNo[1].toString()
+        btn3.text = randomNo[2].toString()
+        btn4.text = randomNo[3].toString()
+        btn5.text = randomNo[4].toString()
+        btn6.text = randomNo[5].toString()
+        btn7.text = randomNo[6].toString()
+        btn8.text = randomNo[7].toString()
+        btn9.text = randomNo[8].toString()
+        btn10.text = randomNo[9].toString()
+        btn11.text = randomNo[10].toString()
+        btn12.text = randomNo[11].toString()
+        btn13.text = randomNo[12].toString()
+        btn14.text = randomNo[13].toString()
+        btn15.text = randomNo[14].toString()
+        btn16.text = randomNo[15].toString()
     }
 
 
@@ -96,9 +120,14 @@ class MainActivity : AppCompatActivity() {
         }
 
     private fun buttonStateManager(boolean: Boolean) {
+        if(boolean) {
+            this.startGame()
+        }
         button_start.isEnabled = !boolean
         button_reset.isEnabled = boolean
     }
+
+
 
 
 }
