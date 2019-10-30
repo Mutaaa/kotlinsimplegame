@@ -33,12 +33,6 @@ class MainActivity : AppCompatActivity() {
     //initiate array for random number
     val randomNo = ArrayList<Int>()
 
-    //button array
-    val buttons = listOf<View>(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11,
-        btn12, btn13, btn14, btn15,btn16)
-
-    var temp = 0
-
 
     private val disposable = CompositeDisposable()
     private val displayInitialState by lazy { resources.getString(R.string._0_0) }
@@ -72,13 +66,6 @@ class MainActivity : AppCompatActivity() {
         for (i in 1..16) {
             randomNo.add(i)
         }
-
-        /*
-        Log.d("hg", "random number")
-//        println()
-//        for (x in randomNo) {
-//            println(x)
-//        }
 
         boxes = arrayListOf(
             findViewById(R.id.btn1),
@@ -122,7 +109,6 @@ class MainActivity : AppCompatActivity() {
         btn16.text = randomNo[15].toString()
 
         index16 = randomNo.indexOf(16)
-        println(index16)
         boxes[index16].setBackgroundColor(Color.parseColor("#87CEFA"))
         boxes[index16].setText("")
     }
