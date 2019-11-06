@@ -20,7 +20,6 @@ import com.jakewharton.rxbinding3.view.clicks
 import io.reactivex.rxkotlin.merge
 
 
-
 private const val MAXIMUM_STOP_WATCH_LIMIT = 3600L
 private const val NUMBER_OF_SECONDS_IN_ONE_MINUTE = 60
 
@@ -157,20 +156,22 @@ class MainActivity : AppCompatActivity() {
         var button = view as Button
         //println(button.text)
         if(button.text == "X"){
-            if(boxes[locationX+1].text == clickedButtonText){
+            if(locationX+1 < 16 && boxes[locationX+1].text == clickedButtonText){
                 boxes[locationX+1].setBackgroundColor(Color.parseColor("#87CEFA"))
                 boxes[locationX+1].setText("X")
                 boxes[locationX].setText(clickedButtonText)
                 boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
                 locationX = locationX+1
                 index16 = locationX
-            } else if (boxes[locationX-1].text == clickedButtonText) {
+                clickedButtonText = ""
+            } else if (locationX-1 >= 0 && boxes[locationX-1].text == clickedButtonText) {
                 boxes[locationX-1].setBackgroundColor(Color.parseColor("#87CEFA"))
                 boxes[locationX-1].setText("X")
                 boxes[locationX].setText(clickedButtonText)
                 boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
                 locationX = locationX-1
                 index16 = locationX
+                clickedButtonText = ""
             } else if (locationX-4 >= 0 && boxes[locationX-4].text == clickedButtonText){
                 boxes[locationX-4].setBackgroundColor(Color.parseColor("#87CEFA"))
                 boxes[locationX-4].setText("X")
@@ -178,15 +179,17 @@ class MainActivity : AppCompatActivity() {
                 boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
                 locationX = locationX-4
                 index16 = locationX
-            } else if (locationX-4 < 16 && boxes[locationX+4].text == clickedButtonText) {
+                clickedButtonText = ""
+            } else if (locationX+4 < 16 && boxes[locationX+4].text == clickedButtonText) {
                 boxes[locationX+4].setBackgroundColor(Color.parseColor("#87CEFA"))
                 boxes[locationX+4].setText("X")
                 boxes[locationX].setText(clickedButtonText)
                 boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
                 locationX = locationX+4
                 index16 = locationX
+                clickedButtonText = ""
             }
-        }else{
+        } else {
             clickedButtonText = button.text.toString()
             clickedButtonLocation = boxes.indexOf(button)
         }
