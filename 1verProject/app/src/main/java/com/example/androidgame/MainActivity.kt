@@ -198,10 +198,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun checkIfCorrect(){
-        val arr = IntArray(14) { i -> 0 }
-        val arr2 = IntArray(14) { i -> 1 }
+        val arr = IntArray(15) { i -> 0 }
+        val arr2 = IntArray(15) { i -> 1 }
 
-        for(x in 1..14){
+        for(x in 1..15){
             //println(x.toString()+1)
             if(boxes[x-1].text == x.toString()){
                 arr[x-1] = 1
@@ -213,7 +213,12 @@ class MainActivity : AppCompatActivity() {
         val areEqual = arr.contentEquals(arr2)
         println(areEqual)
 
-        if ( areEqual == true ) print("success")
+        if ( areEqual == true ) {
+            textView_success.setText("Success")
+            boxes[15].setText("16")
+            boxes[index16].setBackgroundResource(android.R.drawable.btn_default)
+
+        }
 
     }
 
