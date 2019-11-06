@@ -52,7 +52,9 @@ class MainActivity : AppCompatActivity() {
     private val displayInitialState by lazy { resources.getString(R.string._0_0) }
     var boxes: ArrayList<Button> = arrayListOf()
     private var index16 = 0
-
+    var clickedButtonText = String()
+    var clickedButtonLocation = -1
+    var locationX = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -124,7 +126,8 @@ class MainActivity : AppCompatActivity() {
 
         index16 = randomNo.indexOf(16)
         boxes[index16].setBackgroundColor(Color.parseColor("#87CEFA"))
-        boxes[index16].setText("")
+        boxes[index16].setText("X")
+        locationX = index16
     }
 
     override fun onDestroy() {
@@ -166,6 +169,40 @@ class MainActivity : AppCompatActivity() {
 
     public fun buttonClick(view: View){
         var button = view as Button
-        println(button.text)
+        //println(button.text)
+        if(button.text == "X"){
+            if(boxes[locationX+1].text == clickedButtonText){
+                boxes[locationX+1].setBackgroundColor(Color.parseColor("#87CEFA"))
+                boxes[locationX+1].setText("X")
+                boxes[locationX].setText(clickedButtonText)
+                boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
+                locationX = locationX+1
+                index16 = locationX
+            } else if (boxes[locationX-1].text == clickedButtonText) {
+                boxes[locationX-1].setBackgroundColor(Color.parseColor("#87CEFA"))
+                boxes[locationX-1].setText("X")
+                boxes[locationX].setText(clickedButtonText)
+                boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
+                locationX = locationX-1
+                index16 = locationX
+            } else if (locationX-4 >= 0 && boxes[locationX-4].text == clickedButtonText){
+                boxes[locationX-4].setBackgroundColor(Color.parseColor("#87CEFA"))
+                boxes[locationX-4].setText("X")
+                boxes[locationX].setText(clickedButtonText)
+                boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
+                locationX = locationX-4
+                index16 = locationX
+            } else if (locationX-4 < 16 && boxes[locationX+4].text == clickedButtonText) {
+                boxes[locationX+4].setBackgroundColor(Color.parseColor("#87CEFA"))
+                boxes[locationX+4].setText("X")
+                boxes[locationX].setText(clickedButtonText)
+                boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
+                locationX = locationX+4
+                index16 = locationX
+            }
+        }else{
+            clickedButtonText = button.text.toString()
+            clickedButtonLocation = boxes.indexOf(button)
+        }
     }
 }
