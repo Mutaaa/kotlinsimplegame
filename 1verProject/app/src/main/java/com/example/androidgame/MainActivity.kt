@@ -193,5 +193,29 @@ class MainActivity : AppCompatActivity() {
             clickedButtonText = button.text.toString()
             clickedButtonLocation = boxes.indexOf(button)
         }
+
+        checkIfCorrect()
     }
+
+    fun checkIfCorrect(){
+        val arr = IntArray(14) { i -> 0 }
+        val arr2 = IntArray(14) { i -> 1 }
+
+        for(x in 1..14){
+            //println(x.toString()+1)
+            if(boxes[x-1].text == x.toString()){
+                arr[x-1] = 1
+            } else {
+                arr[x-1] = 0
+            }
+        }
+
+        val areEqual = arr.contentEquals(arr2)
+        println(areEqual)
+
+        if ( areEqual == true ) print("success")
+
+    }
+
+
 }
