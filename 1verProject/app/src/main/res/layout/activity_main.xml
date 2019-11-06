@@ -50,6 +50,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:onClick="buttonClick"
                 android:text="1" />
 
             <Button
@@ -58,6 +59,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:onClick="buttonClick"
                 android:text="2" />
 
             <Button
@@ -66,6 +68,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:onClick="buttonClick"
                 android:text="3" />
 
             <Button
@@ -74,6 +77,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:onClick="buttonClick"
                 android:text="4" />
         </TableRow>
 
@@ -89,6 +93,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:onClick="buttonClick"
                 android:text="5" />
 
             <Button
@@ -97,6 +102,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:onClick="buttonClick"
                 android:text="6" />
 
             <Button
@@ -105,6 +111,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:onClick="buttonClick"
                 android:text="7" />
 
             <Button
@@ -113,6 +120,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:onClick="buttonClick"
                 android:text="8" />
         </TableRow>
 
@@ -128,6 +136,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:onClick="buttonClick"
                 android:text="9" />
 
             <Button
@@ -136,6 +145,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:onClick="buttonClick"
                 android:text="10" />
 
             <Button
@@ -144,6 +154,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:onClick="buttonClick"
                 android:text="11" />
 
             <Button
@@ -152,6 +163,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:onClick="buttonClick"
                 android:text="12" />
         </TableRow>
 
@@ -167,6 +179,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:onClick="buttonClick"
                 android:text="13" />
 
             <Button
@@ -175,6 +188,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:onClick="buttonClick"
                 android:text="14" />
 
             <Button
@@ -183,6 +197,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:onClick="buttonClick"
                 android:text="15" />
 
             <Button
@@ -191,6 +206,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:onClick="buttonClick"
                 android:text="16" />
         </TableRow>
 

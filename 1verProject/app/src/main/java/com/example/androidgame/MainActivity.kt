@@ -144,8 +144,14 @@ class MainActivity : AppCompatActivity() {
         }else{
             boxes[index16].setBackgroundResource(android.R.drawable.btn_default)
             boxes[index16].setText("16")
+
         }
         button_start.isEnabled = !boolean
         button_reset.isEnabled = boolean
+    }
+
+    public fun buttonClick(view: View){
+        var button = view as Button
+        println(button.text)
     }
 }
