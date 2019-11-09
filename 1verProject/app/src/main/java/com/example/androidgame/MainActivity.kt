@@ -17,8 +17,9 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import com.jakewharton.rxbinding3.view.clicks
+import io.reactivex.internal.operators.observable.ObservableAll
 import io.reactivex.rxkotlin.merge
-
+import io.reactivex.disposables.Disposable
 
 private const val MAXIMUM_STOP_WATCH_LIMIT = 3600L
 private const val NUMBER_OF_SECONDS_IN_ONE_MINUTE = 60
@@ -31,7 +32,6 @@ class MainActivity : AppCompatActivity() {
 
     //initiate array for random number
     val randomNo = ArrayList<Int>()
-
 
     private val disposable = CompositeDisposable()
     private val displayInitialState by lazy { resources.getString(R.string._0_0) }
@@ -118,6 +118,7 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         disposable.clear()
         super.onDestroy()
+        //disposable.dispose();
     }
 
     private fun mergeClicks(): Observable<Boolean> =
@@ -217,8 +218,14 @@ class MainActivity : AppCompatActivity() {
             textView_success.setText("Success")
             boxes[15].setText("16")
             boxes[index16].setBackgroundResource(android.R.drawable.btn_default)
+            onStop()
 
         }
+    }
+
+    override fun onStop() {
+        disposable.dispose()
+        super.onStop()
 
     }
 
