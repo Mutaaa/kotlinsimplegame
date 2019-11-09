@@ -51,7 +51,6 @@ class MainActivity : AppCompatActivity() {
     val randomNo = ArrayList<Int>()
     var scores: ArrayList<String> = arrayListOf()
     var scor = "LOL"
-
     private val disposable = CompositeDisposable()
     private val displayInitialState by lazy { resources.getString(R.string._0_0) }
     var boxes: ArrayList<Button> = arrayListOf()
@@ -59,14 +58,14 @@ class MainActivity : AppCompatActivity() {
     var clickedButtonText = String()
     var clickedButtonLocation = -1
     var locationX = -1
+    var scoreId = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         ref = FirebaseDatabase.getInstance().reference
         scoreReading(ref)
-        //println("BLABLABLABLABLABLABLBLALBALBALBLABLALBALBALA")
-        val scoreId = ref.push().key.toString()
-        ref.child(scoreId).setValue(userScore)
+        scoreId = ref.push().key.toString()
+        //ref.child(scoreId).setValue(userScore)
         scoreShow()
 
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -190,8 +189,10 @@ class MainActivity : AppCompatActivity() {
                      var score = scoreSnapshot.getValue(String::class.java)
                      scor = score.toString()
                      //var score = scoreSnapshot.getValue(String.class);
-                     scores.add(scor)
-                     println(score.toString())
+                     //scores.add(scor)
+                     //println(score.toString())
+                     textView_yourscore.setText(score.toString())
+
 
                      /*for (score2 in scores){
                          println(score2.toString())
@@ -220,6 +221,7 @@ class MainActivity : AppCompatActivity() {
         }
         println(scor)
         println("DSAFJDASKFJDKAJFDKAHKVDAJKFDASJFDHAKHFDLSA")
+
     }
 
     fun buttonClick(view: View){
@@ -269,23 +271,23 @@ class MainActivity : AppCompatActivity() {
 
     fun checkIfCorrect(){
         //uncomment when want to test
-        //val arr = IntArray(15) { i -> 1 }
+        val arr = IntArray(15) { i -> 1 }
 
         //comment when want to test
-        val arr = IntArray(15) { i -> 0 }
+        //val arr = IntArray(15) { i -> 0 }
 
         //dont need to do anything with this
         val arr2 = IntArray(15) { i -> 1 }
 
         //comment these when want to test
-        for(x in 1..15){
-            //println(x.toString()+1)
-            if(boxes[x-1].text == x.toString()){
-                arr[x-1] = 1
-            } else {
-                arr[x-1] = 0
-            }
-        }
+//        for(x in 1..15){
+//            //println(x.toString()+1)
+//            if(boxes[x-1].text == x.toString()){
+//                arr[x-1] = 1
+//            } else {
+//                arr[x-1] = 0
+//            }
+//        }
 
         val areEqual = arr.contentEquals(arr2)
         println(areEqual)
@@ -297,6 +299,8 @@ class MainActivity : AppCompatActivity() {
             //onDestroy()
 
             userScore = text_view_countdown.text.toString()
+
+            ref.child(scoreId).setValue(userScore)
             println("Score "+ userScore)
             button_reset.callOnClick()
 

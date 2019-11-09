@@ -256,7 +256,7 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_yourscore"
         android:layout_width="159dp"
         android:layout_height="33dp"
         android:text="Your score:"
@@ -269,7 +269,7 @@
         app:layout_constraintVertical_bias="0.073" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView_highscore"
         android:layout_width="218dp"
         android:layout_height="48dp"
         android:text="Highest score:"
