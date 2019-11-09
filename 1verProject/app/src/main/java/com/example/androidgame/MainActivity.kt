@@ -44,7 +44,6 @@ private const val NUMBER_OF_SECONDS_IN_ONE_MINUTE = 60
 class MainActivity : AppCompatActivity() {
 
     lateinit var ref: DatabaseReference
-    //val stupidThing = "glupiaRzecz"
     var userScore = "0"
 
     //initiate array for random number
@@ -64,9 +63,8 @@ class MainActivity : AppCompatActivity() {
 
         ref = FirebaseDatabase.getInstance().reference
         scoreReading(ref)
-        scoreId = ref.push().key.toString()
+
         //ref.child(scoreId).setValue(userScore)
-        scoreShow()
 
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
@@ -109,7 +107,6 @@ class MainActivity : AppCompatActivity() {
             findViewById(R.id.btn15),
             findViewById(R.id.btn16)
         )
-        scoreShow()
     }
 
     fun startGame() {
@@ -166,7 +163,7 @@ class MainActivity : AppCompatActivity() {
     private val timeFormatter: (Long) -> String =
         { secs ->
             if (secs == MAXIMUM_STOP_WATCH_LIMIT) displayInitialState
-            else "${secs / NUMBER_OF_SECONDS_IN_ONE_MINUTE} : ${secs % NUMBER_OF_SECONDS_IN_ONE_MINUTE}"
+            else "${secs / NUMBER_OF_SECONDS_IN_ONE_MINUTE}:${secs % NUMBER_OF_SECONDS_IN_ONE_MINUTE}"
         }
 
     private fun buttonStateManager(boolean: Boolean) {
@@ -185,19 +182,29 @@ class MainActivity : AppCompatActivity() {
     fun scoreReading(reference: DatabaseReference){
         reference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
+                var highest = 0
                  for (scoreSnapshot in dataSnapshot.children) {
+
                      var score = scoreSnapshot.getValue(String::class.java)
                      scor = score.toString()
+                     val separate = scor.split(":")
+                     val test = separate[0].toInt()*60 + separate[1].toInt()
+                     if(test < highest){
+                         highest = test
+                     }
                      //var score = scoreSnapshot.getValue(String.class);
                      //scores.add(scor)
                      //println(score.toString())
-                     textView_yourscore.setText(score.toString())
+                     //textView_yourscore.setText(score.toString())
 
 
                      /*for (score2 in scores){
                          println(score2.toString())
                      }*/
 
+                }
+                if(highest != 0) {
+                    textView_highscore.setText(highest.toString())
                 }
             }
 
@@ -206,18 +213,6 @@ class MainActivity : AppCompatActivity() {
                 println("Failed to read value.")
             }
         })
-        scoreShow()
-    }
-
-    fun scoreShow(){
-        println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-        for (sc in scores){
-            println("sth")
-            println(sc)
-        }
-        println(scor)
-        println("DSAFJDASKFJDKAJFDKAHKVDAJKFDASJFDHAKHFDLSA")
-
     }
 
     fun buttonClick(view: View){
@@ -293,6 +288,7 @@ class MainActivity : AppCompatActivity() {
             boxes[15].setText("16")
             boxes[index16].setBackgroundResource(android.R.drawable.btn_default)
             //onDestroy()
+            scoreId = ref.push().key.toString()
 
             userScore = text_view_countdown.text.toString()
 
