@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
     //initiate array for random number
     val randomNo = ArrayList<Int>()
-    var scores: ArrayList<String> = arrayListOf()
+    var scores: MutableList<String> = mutableListOf()
     var scor = "LOL"
     private val disposable = CompositeDisposable()
     private val displayInitialState by lazy { resources.getString(R.string._0_0) }
@@ -199,10 +199,6 @@ class MainActivity : AppCompatActivity() {
                      }*/
 
                 }
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-               //var value = dataSnapshot.getValue()
-                //println(value!!)
             }
 
             override fun onCancelled(error: DatabaseError) {
