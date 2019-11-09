@@ -44,8 +44,8 @@ private const val NUMBER_OF_SECONDS_IN_ONE_MINUTE = 60
 class MainActivity : AppCompatActivity() {
 
     lateinit var ref: DatabaseReference
-    val stupidThing = "glupiaRzecz"
-    var score = "0"
+    //val stupidThing = "glupiaRzecz"
+    var userScore = "0"
 
     //initiate array for random number
     val randomNo = ArrayList<Int>()
@@ -65,9 +65,10 @@ class MainActivity : AppCompatActivity() {
         ref = FirebaseDatabase.getInstance().reference
         scoreReading(ref)
         //println("BLABLABLABLABLABLABLBLALBALBALBLABLALBALBALA")
-        val stupidId = ref.push().key.toString()
-        ref.child(stupidId).setValue(stupidThing)
+        val scoreId = ref.push().key.toString()
+        ref.child(scoreId).setValue(userScore)
         scoreShow()
+
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
         window.setFlags(
@@ -295,8 +296,8 @@ class MainActivity : AppCompatActivity() {
             boxes[index16].setBackgroundResource(android.R.drawable.btn_default)
             //onDestroy()
 
-            score = text_view_countdown.text.toString()
-            println("Score "+ score)
+            userScore = text_view_countdown.text.toString()
+            println("Score "+ userScore)
             button_reset.callOnClick()
 
 
