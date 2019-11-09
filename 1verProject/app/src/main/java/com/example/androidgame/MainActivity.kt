@@ -21,6 +21,21 @@ import com.jakewharton.rxbinding3.view.clicks
 import io.reactivex.internal.operators.observable.ObservableAll
 import io.reactivex.rxkotlin.merge
 import io.reactivex.disposables.Disposable
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.ValueEventListener
+//import androidx.core.app.ComponentActivity
+//import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import androidx.fragment.app.FragmentActivity
+import androidx.core.app.ComponentActivity
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
+
 
 private const val MAXIMUM_STOP_WATCH_LIMIT = 3600L
 private const val NUMBER_OF_SECONDS_IN_ONE_MINUTE = 60
@@ -34,6 +49,8 @@ class MainActivity : AppCompatActivity() {
 
     //initiate array for random number
     val randomNo = ArrayList<Int>()
+    var scores: ArrayList<String> = arrayListOf()
+    var scor = "LOL"
 
     private val disposable = CompositeDisposable()
     private val displayInitialState by lazy { resources.getString(R.string._0_0) }
@@ -46,9 +63,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         ref = FirebaseDatabase.getInstance().reference
+        scoreReading(ref)
+        //println("BLABLABLABLABLABLABLBLALBALBALBLABLALBALBALA")
         val stupidId = ref.push().key.toString()
         ref.child(stupidId).setValue(stupidThing)
-
+        scoreShow()
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
         window.setFlags(
@@ -90,6 +109,7 @@ class MainActivity : AppCompatActivity() {
             findViewById(R.id.btn15),
             findViewById(R.id.btn16)
         )
+        scoreShow()
     }
 
     fun startGame() {
@@ -162,7 +182,46 @@ class MainActivity : AppCompatActivity() {
         button_reset.isEnabled = boolean
     }
 
-    public fun buttonClick(view: View){
+    fun scoreReading(reference: DatabaseReference){
+        reference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                 for (scoreSnapshot in dataSnapshot.children) {
+                     var score = scoreSnapshot.getValue(String::class.java)
+                     scor = score.toString()
+                     //var score = scoreSnapshot.getValue(String.class);
+                     scores.add(scor)
+                     println(score.toString())
+
+                     /*for (score2 in scores){
+                         println(score2.toString())
+                     }*/
+
+                }
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+               //var value = dataSnapshot.getValue()
+                //println(value!!)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+                println("Failed to read value.")
+            }
+        })
+        scoreShow()
+    }
+
+    fun scoreShow(){
+        println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+        for (sc in scores){
+            println("sth")
+            println(sc)
+        }
+        println(scor)
+        println("DSAFJDASKFJDKAJFDKAHKVDAJKFDASJFDHAKHFDLSA")
+    }
+
+    fun buttonClick(view: View){
         var button = view as Button
         //println(button.text)
         if(button.text == "X"){

@@ -6,4 +6,5 @@
     <string name="stop_botton_text">Stop</string>
     <string name="reset_botton_text">Stop</string>
     <string name="unsuccess_txt">Unsuccess</string>
+    <string name="score">Score:</string>
 </resources>
