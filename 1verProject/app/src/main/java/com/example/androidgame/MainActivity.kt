@@ -9,6 +9,7 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.isVisible
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var ref: DatabaseReference
     val stupidThing = "glupiaRzecz"
+    var score = "0"
 
     //initiate array for random number
     val randomNo = ArrayList<Int>()
@@ -60,8 +62,10 @@ class MainActivity : AppCompatActivity() {
 
         mergeClicks().switchMap {
             if (it) timerObservable()
-            else Observable.just(displayInitialState)
-        }.subscribe(text_view_countdown::setText)
+            else {
+                Observable.empty()
+            }
+        }   .subscribe(text_view_countdown::setText)
             .let(disposable::add)
 
         for (i in 1..16) {
@@ -90,6 +94,8 @@ class MainActivity : AppCompatActivity() {
 
     fun startGame() {
 
+        text_view_countdown.isVisible = true
+
         randomNo.shuffle()
 
         btn1.text = randomNo[0].toString()
@@ -116,9 +122,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        disposable.clear()
-        super.onDestroy()
-        //disposable.dispose();
+        if (!disposable.isDisposed) {
+            disposable.clear()
+            super.onDestroy()
+            buttonStateManager(false)
+        }
     }
 
     private fun mergeClicks(): Observable<Boolean> =
@@ -144,6 +152,7 @@ class MainActivity : AppCompatActivity() {
     private fun buttonStateManager(boolean: Boolean) {
         if(boolean) {
             this.startGame()
+
         }else{
             boxes[index16].setBackgroundResource(android.R.drawable.btn_default)
             boxes[index16].setText("16")
@@ -199,9 +208,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun checkIfCorrect(){
+        //uncomment when want to test
+        //val arr = IntArray(15) { i -> 1 }
+
+        //comment when want to test
         val arr = IntArray(15) { i -> 0 }
+
+        //dont need to do anything with this
         val arr2 = IntArray(15) { i -> 1 }
 
+        //comment these when want to test
         for(x in 1..15){
             //println(x.toString()+1)
             if(boxes[x-1].text == x.toString()){
@@ -218,7 +234,14 @@ class MainActivity : AppCompatActivity() {
             textView_success.setText("Success")
             boxes[15].setText("16")
             boxes[index16].setBackgroundResource(android.R.drawable.btn_default)
-            onStop()
+            //onDestroy()
+
+            score = text_view_countdown.text.toString()
+            println("Score "+ score)
+            button_reset.callOnClick()
+
+
+        } else {
 
         }
     }
@@ -226,8 +249,13 @@ class MainActivity : AppCompatActivity() {
     override fun onStop() {
         disposable.dispose()
         super.onStop()
+//        button_reset.isEnabled = true
+//        button_start.isEnabled = true
+        //buttonStateManager(false)
+            // disposable.isDisposed
+
+//        finish()
+//        startActivity(getIntent())
 
     }
-
-
 }
