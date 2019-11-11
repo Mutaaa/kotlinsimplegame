@@ -134,7 +134,7 @@ class MainActivity : AppCompatActivity() {
         btn16.text = randomNo[15].toString()
 
         index16 = randomNo.indexOf(16)
-        boxes[index16].setBackgroundColor(Color.parseColor("#87CEFA"))
+        boxes[index16].setBackgroundColor(Color.parseColor("#FFFFFF"))
         boxes[index16].setText("X")
         locationX = index16
     }
@@ -210,7 +210,7 @@ class MainActivity : AppCompatActivity() {
         //println(button.text)
         if(button.text == "X"){
             if(locationX+1 < 16 && boxes[locationX+1].text == clickedButtonText){
-                boxes[locationX+1].setBackgroundColor(Color.parseColor("#87CEFA"))
+                boxes[locationX+1].setBackgroundColor(Color.parseColor("#FFFFFF"))
                 boxes[locationX+1].setText("X")
                 boxes[locationX].setText(clickedButtonText)
                 boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
@@ -218,7 +218,7 @@ class MainActivity : AppCompatActivity() {
                 index16 = locationX
                 clickedButtonText = ""
             } else if (locationX-1 >= 0 && boxes[locationX-1].text == clickedButtonText) {
-                boxes[locationX-1].setBackgroundColor(Color.parseColor("#87CEFA"))
+                boxes[locationX-1].setBackgroundColor(Color.parseColor("#FFFFFF"))
                 boxes[locationX-1].setText("X")
                 boxes[locationX].setText(clickedButtonText)
                 boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
@@ -226,7 +226,7 @@ class MainActivity : AppCompatActivity() {
                 index16 = locationX
                 clickedButtonText = ""
             } else if (locationX-4 >= 0 && boxes[locationX-4].text == clickedButtonText){
-                boxes[locationX-4].setBackgroundColor(Color.parseColor("#87CEFA"))
+                boxes[locationX-4].setBackgroundColor(Color.parseColor("#FFFFFF"))
                 boxes[locationX-4].setText("X")
                 boxes[locationX].setText(clickedButtonText)
                 boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
@@ -234,7 +234,7 @@ class MainActivity : AppCompatActivity() {
                 index16 = locationX
                 clickedButtonText = ""
             } else if (locationX+4 < 16 && boxes[locationX+4].text == clickedButtonText) {
-                boxes[locationX+4].setBackgroundColor(Color.parseColor("#87CEFA"))
+                boxes[locationX+4].setBackgroundColor(Color.parseColor("#FFFFFF"))
                 boxes[locationX+4].setText("X")
                 boxes[locationX].setText(clickedButtonText)
                 boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
@@ -252,23 +252,23 @@ class MainActivity : AppCompatActivity() {
 
     fun checkIfCorrect(){
         //uncomment when want to test
-        val arr = IntArray(15) { i -> 1 }
+        //val arr = IntArray(15) { i -> 1 }
 
         //comment when want to test
-        //val arr = IntArray(15) { i -> 0 }
+        val arr = IntArray(15) { i -> 0 }
 
         //dont need to do anything with this
         val arr2 = IntArray(15) { i -> 1 }
 
         //comment these when want to test
-//        for(x in 1..15){
-//            //println(x.toString()+1)
-//            if(boxes[x-1].text == x.toString()){
-//                arr[x-1] = 1
-//            } else {
-//                arr[x-1] = 0
-//            }
-//        }
+        for(x in 1..15){
+            //println(x.toString()+1)
+            if(boxes[x-1].text == x.toString()){
+                arr[x-1] = 1
+            } else {
+                arr[x-1] = 0
+            }
+        }
 
         val areEqual = arr.contentEquals(arr2)
         println(areEqual)
