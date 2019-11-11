@@ -254,31 +254,17 @@
         app:layout_constraintVertical_bias="0.908" />
 
 
-
-    <TextView
-        android:id="@+id/textView_yourscore"
-        android:layout_width="159dp"
-        android:layout_height="33dp"
-        android:text="Your score:"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.073" />
-
     <TextView
         android:id="@+id/textView_highscore"
-        android:layout_width="218dp"
-        android:layout_height="48dp"
+        android:layout_width="304dp"
+        android:layout_height="46dp"
         android:text="Highest score:"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.203"
+        app:layout_constraintHorizontal_bias="0.373"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.179" />
+        app:layout_constraintVertical_bias="0.122" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

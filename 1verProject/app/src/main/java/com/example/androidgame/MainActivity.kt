@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
     val randomNo = ArrayList<Int>()
     var scores: MutableList<String> = mutableListOf()
     var scor = "LOL"
+    var highestString = ""
     private val disposable = CompositeDisposable()
     private val displayInitialState by lazy { resources.getString(R.string._0_0) }
     var boxes: ArrayList<Button> = arrayListOf()
@@ -182,30 +183,19 @@ class MainActivity : AppCompatActivity() {
     fun scoreReading(reference: DatabaseReference){
         reference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                var highest = 0
+                var highest = 99999
                  for (scoreSnapshot in dataSnapshot.children) {
 
                      var score = scoreSnapshot.getValue(String::class.java)
                      scor = score.toString()
                      val separate = scor.split(":")
                      val test = separate[0].toInt()*60 + separate[1].toInt()
-                     if(test < highest){
+                     if(test < highest && test != 0){
                          highest = test
+                         highestString = scor
                      }
-                     //var score = scoreSnapshot.getValue(String.class);
-                     //scores.add(scor)
-                     //println(score.toString())
-                     //textView_yourscore.setText(score.toString())
-
-
-                     /*for (score2 in scores){
-                         println(score2.toString())
-                     }*/
-
                 }
-                if(highest != 0) {
-                    textView_highscore.setText(highest.toString())
-                }
+                textView_highscore.setText("Highest score: "+highestString.toString())
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -291,11 +281,11 @@ class MainActivity : AppCompatActivity() {
             scoreId = ref.push().key.toString()
 
             userScore = text_view_countdown.text.toString()
-
-            ref.child(scoreId).setValue(userScore)
-            println("Score "+ userScore)
-            button_reset.callOnClick()
-
+            if(!userScore.equals("0:0")) {
+                ref.child(scoreId).setValue(userScore)
+                println("Score " + userScore)
+                button_reset.callOnClick()
+            }
 
         } else {
 
