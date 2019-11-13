@@ -80,9 +80,7 @@ class MainActivity : AppCompatActivity() {
 
         mergeClicks().switchMap {
             if (it) timerObservable()
-            else {
-                Observable.empty()
-            }
+            else Observable.empty()
         }   .subscribe(text_view_countdown::setText)
             .let(disposable::add)
 
@@ -290,18 +288,5 @@ class MainActivity : AppCompatActivity() {
         } else {
 
         }
-    }
-
-    override fun onStop() {
-        disposable.dispose()
-        super.onStop()
-//        button_reset.isEnabled = true
-//        button_start.isEnabled = true
-        //buttonStateManager(false)
-            // disposable.isDisposed
-
-//        finish()
-//        startActivity(getIntent())
-
     }
 }
