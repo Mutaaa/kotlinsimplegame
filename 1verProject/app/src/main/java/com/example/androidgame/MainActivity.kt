@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var ref: DatabaseReference
     var userScore = "0"
+    var checkIfStart = 0
 
     //initiate array for random number
     val randomNo = ArrayList<Int>()
@@ -88,6 +89,7 @@ class MainActivity : AppCompatActivity() {
             randomNo.add(i)
         }
 
+
         boxes = arrayListOf(
             findViewById(R.id.btn1),
             findViewById(R.id.btn2),
@@ -111,7 +113,7 @@ class MainActivity : AppCompatActivity() {
     fun startGame() {
 
         text_view_countdown.isVisible = true
-
+        checkIfStart = 1
         randomNo.shuffle()
 
         btn1.text = randomNo[0].toString()
@@ -204,48 +206,50 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun buttonClick(view: View){
-        var button = view as Button
-        //println(button.text)
-        if(button.text == "X"){
-            if(locationX+1 < 16 && boxes[locationX+1].text == clickedButtonText){
-                boxes[locationX+1].setBackgroundColor(Color.parseColor("#FFFFFF"))
-                boxes[locationX+1].setText("X")
-                boxes[locationX].setText(clickedButtonText)
-                boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
-                locationX = locationX+1
-                index16 = locationX
-                clickedButtonText = ""
-            } else if (locationX-1 >= 0 && boxes[locationX-1].text == clickedButtonText) {
-                boxes[locationX-1].setBackgroundColor(Color.parseColor("#FFFFFF"))
-                boxes[locationX-1].setText("X")
-                boxes[locationX].setText(clickedButtonText)
-                boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
-                locationX = locationX-1
-                index16 = locationX
-                clickedButtonText = ""
-            } else if (locationX-4 >= 0 && boxes[locationX-4].text == clickedButtonText){
-                boxes[locationX-4].setBackgroundColor(Color.parseColor("#FFFFFF"))
-                boxes[locationX-4].setText("X")
-                boxes[locationX].setText(clickedButtonText)
-                boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
-                locationX = locationX-4
-                index16 = locationX
-                clickedButtonText = ""
-            } else if (locationX+4 < 16 && boxes[locationX+4].text == clickedButtonText) {
-                boxes[locationX+4].setBackgroundColor(Color.parseColor("#FFFFFF"))
-                boxes[locationX+4].setText("X")
-                boxes[locationX].setText(clickedButtonText)
-                boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
-                locationX = locationX+4
-                index16 = locationX
-                clickedButtonText = ""
+        if(checkIfStart == 1) {
+            var button = view as Button
+            //println(button.text)
+            if (button.text == "X") {
+                if (locationX + 1 < 16 && boxes[locationX + 1].text == clickedButtonText) {
+                    boxes[locationX + 1].setBackgroundColor(Color.parseColor("#FFFFFF"))
+                    boxes[locationX + 1].setText("X")
+                    boxes[locationX].setText(clickedButtonText)
+                    boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
+                    locationX = locationX + 1
+                    index16 = locationX
+                    clickedButtonText = ""
+                } else if (locationX - 1 >= 0 && boxes[locationX - 1].text == clickedButtonText) {
+                    boxes[locationX - 1].setBackgroundColor(Color.parseColor("#FFFFFF"))
+                    boxes[locationX - 1].setText("X")
+                    boxes[locationX].setText(clickedButtonText)
+                    boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
+                    locationX = locationX - 1
+                    index16 = locationX
+                    clickedButtonText = ""
+                } else if (locationX - 4 >= 0 && boxes[locationX - 4].text == clickedButtonText) {
+                    boxes[locationX - 4].setBackgroundColor(Color.parseColor("#FFFFFF"))
+                    boxes[locationX - 4].setText("X")
+                    boxes[locationX].setText(clickedButtonText)
+                    boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
+                    locationX = locationX - 4
+                    index16 = locationX
+                    clickedButtonText = ""
+                } else if (locationX + 4 < 16 && boxes[locationX + 4].text == clickedButtonText) {
+                    boxes[locationX + 4].setBackgroundColor(Color.parseColor("#FFFFFF"))
+                    boxes[locationX + 4].setText("X")
+                    boxes[locationX].setText(clickedButtonText)
+                    boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
+                    locationX = locationX + 4
+                    index16 = locationX
+                    clickedButtonText = ""
+                }
+            } else {
+                clickedButtonText = button.text.toString()
+                clickedButtonLocation = boxes.indexOf(button)
             }
-        } else {
-            clickedButtonText = button.text.toString()
-            clickedButtonLocation = boxes.indexOf(button)
-        }
 
-        checkIfCorrect()
+            checkIfCorrect()
+        }
     }
 
     fun checkIfCorrect(){
@@ -288,5 +292,18 @@ class MainActivity : AppCompatActivity() {
         } else {
 
         }
+    }
+    override fun onStop() {
+        checkIfStart = 0
+        disposable.dispose()
+        super.onStop()
+//        button_reset.isEnabled = true
+//        button_start.isEnabled = true
+        //buttonStateManager(false)
+            // disposable.isDisposed
+
+//        finish()
+//        startActivity(getIntent())
+
     }
 }

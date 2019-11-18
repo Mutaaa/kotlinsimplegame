@@ -4,11 +4,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eda80ad7-18ad-4779-a251-fa9435495d0a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/1verProject/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/1verProject/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1verProject/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/1verProject/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1verProject/app/src/main/java/com/example/androidgame/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/1verProject/app/src/main/java/com/example/androidgame/MainActivity.kt" afterDir="false" />
-    </list>
+    <list default="true" id="eda80ad7-18ad-4779-a251-fa9435495d0a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +27,19 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="ProjectPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="android-research-assignment" type="1abcf292:AndroidViewProjectNode" />
+              <item name="android-research-assignment" type="e9137016:NonAndroidModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
