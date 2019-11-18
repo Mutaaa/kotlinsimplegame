@@ -287,7 +287,6 @@ class MainActivity : AppCompatActivity() {
         println(areEqual)
 
         if ( areEqual == true ) {
-            textView_success.setText("Success")
             boxes[15].setText("16")
             boxes[index16].setBackgroundResource(android.R.drawable.btn_default)
             //onDestroy()
