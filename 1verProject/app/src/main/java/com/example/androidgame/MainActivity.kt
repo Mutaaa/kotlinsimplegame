@@ -72,13 +72,8 @@ class MainActivity : AppCompatActivity() {
 
         ref = FirebaseDatabase.getInstance().reference
         scoreReading(ref)
-
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
+
         setContentView(R.layout.activity_main)
 
         if (supportActionBar != null)
