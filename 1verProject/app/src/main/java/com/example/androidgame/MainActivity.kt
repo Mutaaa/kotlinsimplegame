@@ -40,9 +40,22 @@ import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 private const val MAXIMUM_STOP_WATCH_LIMIT = 3600L
 private const val NUMBER_OF_SECONDS_IN_ONE_MINUTE = 60
 
+data class Score(
+    var user: String? = "",
+    var score: String? = ""
+) {
+
+    fun toMap(): Map<String, Any?> {
+        return mapOf(
+            "user" to user,
+            "score" to score
+        )
+    }
+}
 
 class MainActivity : AppCompatActivity() {
 
+    var name = "Player 1"
     lateinit var ref: DatabaseReference
     var userScore = "0"
     var checkIfStart = 0
@@ -65,8 +78,6 @@ class MainActivity : AppCompatActivity() {
 
         ref = FirebaseDatabase.getInstance().reference
         scoreReading(ref)
-
-        //ref.child(scoreId).setValue(userScore)
 
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
@@ -186,7 +197,7 @@ class MainActivity : AppCompatActivity() {
                 var highest = 99999
                  for (scoreSnapshot in dataSnapshot.children) {
 
-                     var score = scoreSnapshot.getValue(String::class.java)
+                     var score = scoreSnapshot.child("score").getValue(String::class.java)
                      scor = score.toString()
                      val separate = scor.split(":")
                      val test = separate[0].toInt()*60 + separate[1].toInt()
@@ -284,7 +295,8 @@ class MainActivity : AppCompatActivity() {
 
             userScore = text_view_countdown.text.toString()
             if(!userScore.equals("0:0")) {
-                ref.child(scoreId).setValue(userScore)
+                val newScore = Score(name, userScore)
+                ref.child(scoreId).setValue(newScore)
                 println("Score " + userScore)
                 button_reset.callOnClick()
             }
