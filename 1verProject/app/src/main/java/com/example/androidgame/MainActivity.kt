@@ -1,14 +1,14 @@
 package com.example.androidgame
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.Menu
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -18,21 +18,11 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import com.jakewharton.rxbinding3.view.clicks
-import io.reactivex.internal.operators.observable.ObservableAll
 import io.reactivex.rxkotlin.merge
-import io.reactivex.disposables.Disposable
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.ValueEventListener
-//import androidx.core.app.ComponentActivity
-//import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import androidx.fragment.app.FragmentActivity
-import androidx.core.app.ComponentActivity
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
 
 
 
@@ -75,6 +65,10 @@ class MainActivity : AppCompatActivity() {
     var scoreId = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        //val intent = Intent(this, MenuActivity::class.java)
+        // start your next activity
+        //startActivity(intent)
 
         ref = FirebaseDatabase.getInstance().reference
         scoreReading(ref)
@@ -258,7 +252,6 @@ class MainActivity : AppCompatActivity() {
                 clickedButtonText = button.text.toString()
                 clickedButtonLocation = boxes.indexOf(button)
             }
-
             checkIfCorrect()
         }
     }
@@ -299,22 +292,11 @@ class MainActivity : AppCompatActivity() {
                 println("Score " + userScore)
                 button_reset.callOnClick()
             }
-
-        } else {
-
-        }
+        } else { }
     }
     override fun onStop() {
         checkIfStart = 0
         disposable.dispose()
         super.onStop()
-//        button_reset.isEnabled = true
-//        button_start.isEnabled = true
-        //buttonStateManager(false)
-            // disposable.isDisposed
-
-//        finish()
-//        startActivity(getIntent())
-
     }
 }
