@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.jakewharton.rxbinding3:rxbinding-swiperefreshlayout:3.0.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/633ec6457c9aa7ee09caca485fff92b4/rxbinding-swiperefreshlayout-3.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/633ec6457c9aa7ee09caca485fff92b4/rxbinding-swiperefreshlayout-3.0.0/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton.rxbinding3/rxbinding-swiperefreshlayout/3.0.0/94d2bf94c906ed0800ffe3f3af03f3e8cc040208/rxbinding-swiperefreshlayout-3.0.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton.rxbinding3/rxbinding-swiperefreshlayout/3.0.0/6548742593644079c16acd62274a5189b828fdca/rxbinding-swiperefreshlayout-3.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

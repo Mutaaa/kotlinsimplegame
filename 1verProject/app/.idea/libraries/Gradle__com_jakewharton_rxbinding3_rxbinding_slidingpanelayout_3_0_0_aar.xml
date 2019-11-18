@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.jakewharton.rxbinding3:rxbinding-slidingpanelayout:3.0.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/703d5d2cef17226e90e88a837019c903/rxbinding-slidingpanelayout-3.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/703d5d2cef17226e90e88a837019c903/rxbinding-slidingpanelayout-3.0.0/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton.rxbinding3/rxbinding-slidingpanelayout/3.0.0/20fdcaa101918f5a177e1d16a250cac333c08218/rxbinding-slidingpanelayout-3.0.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton.rxbinding3/rxbinding-slidingpanelayout/3.0.0/8aca567421242da33be77c6a4b52c437f52095d7/rxbinding-slidingpanelayout-3.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

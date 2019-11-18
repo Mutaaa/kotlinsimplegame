@@ -23,4 +23,7 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="button3x3">3 x 3</string>
+    <string name="button4x4">4 x 4</string>
+    <string name="buttonSettings">Settings</string>
 </resources>
