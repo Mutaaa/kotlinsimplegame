@@ -73,7 +73,13 @@ class MainActivity : AppCompatActivity() {
         ref = FirebaseDatabase.getInstance().reference
         scoreReading(ref)
 
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        val actionbar = supportActionBar
+        actionbar!!.title = "New Activity"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
+
+        //requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -81,8 +87,8 @@ class MainActivity : AppCompatActivity() {
         )
         setContentView(R.layout.activity_main)
 
-        if (supportActionBar != null)
-            supportActionBar?.hide()
+//        if (supportActionBar != null)
+//            supportActionBar?.hide()
 
         mergeClicks().switchMap {
             if (it) timerObservable()
@@ -113,6 +119,12 @@ class MainActivity : AppCompatActivity() {
             findViewById(R.id.btn15),
             findViewById(R.id.btn16)
         )
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val intent = Intent(this, MenuActivity::class.java)
+        startActivity(intent)
+        return true
     }
 
     fun startGame() {
