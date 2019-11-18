@@ -99,6 +99,14 @@
                 android:onClick="buttonClick"
                 android:text="3" />
 
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
             <Button
                 android:id="@+id/btn4"
                 android:layout_width="0dp"
@@ -107,13 +115,6 @@
                 android:background="@android:drawable/btn_default"
                 android:onClick="buttonClick"
                 android:text="4" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center">
 
             <Button
                 android:id="@+id/btn5"
@@ -133,6 +134,14 @@
                 android:onClick="buttonClick"
                 android:text="6" />
 
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
             <Button
                 android:id="@+id/btn7"
                 android:layout_width="0dp"
@@ -150,13 +159,6 @@
                 android:background="@android:drawable/btn_default"
                 android:onClick="buttonClick"
                 android:text="8" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center">
 
             <Button
                 android:id="@+id/btn9"
@@ -167,75 +169,6 @@
                 android:onClick="buttonClick"
                 android:text="9" />
 
-            <Button
-                android:id="@+id/btn10"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:drawable/btn_default"
-                android:onClick="buttonClick"
-                android:text="10" />
-
-            <Button
-                android:id="@+id/btn11"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:drawable/btn_default"
-                android:onClick="buttonClick"
-                android:text="11" />
-
-            <Button
-                android:id="@+id/btn12"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:drawable/btn_default"
-                android:onClick="buttonClick"
-                android:text="12" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/btn13"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:drawable/btn_default"
-                android:onClick="buttonClick"
-                android:text="13" />
-
-            <Button
-                android:id="@+id/btn14"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:drawable/btn_default"
-                android:onClick="buttonClick"
-                android:text="14" />
-
-            <Button
-                android:id="@+id/btn15"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:drawable/btn_default"
-                android:onClick="buttonClick"
-                android:text="15" />
-
-            <Button
-                android:id="@+id/btn16"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:drawable/btn_default"
-                android:onClick="buttonClick"
-                android:text="16" />
         </TableRow>
 
     </TableLayout>
