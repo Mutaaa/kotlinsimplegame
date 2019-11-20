@@ -26,4 +26,7 @@
     <string name="button3x3">3 x 3</string>
     <string name="button4x4">4 x 4</string>
     <string name="buttonSettings">Settings</string>
+    <string name="name_user">Name</string>
+    <string name="colour_blue">Blue</string>
+    <string name="colour">Colour</string>
 </resources>

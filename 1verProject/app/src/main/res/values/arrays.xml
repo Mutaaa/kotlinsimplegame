@@ -9,4 +9,17 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <string-array name="colour_entries">
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Pink</item>
+    </string-array>
+
+    <string-array name="colour_values">
+        <item>blue</item>
+        <item>green</item>
+        <item>pink</item>
+    </string-array>
+
 </resources>
