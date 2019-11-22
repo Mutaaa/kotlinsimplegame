@@ -127,9 +127,9 @@ class MainActivity : AppCompatActivity() {
         )
 
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-        if(prefs.getString("reply", "<unset>") == "green"){
+        if(prefs.getString("reply", "<unset>") == "orange"){
             val layout = findViewById<ConstraintLayout>(R.id.mainLayout)
-            layout.setBackgroundColor(Color.parseColor("#98FB98"))
+            layout.setBackgroundColor(Color.parseColor("#ff9c34"))
 
         }else if(prefs.getString("reply", "<unset>") == "blue"){
             val layout = findViewById<ConstraintLayout>(R.id.mainLayout)

@@ -16,9 +16,9 @@ class MenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-        if(prefs.getString("reply", "<unset>") == "green"){
+        if(prefs.getString("reply", "<unset>") == "orange"){
             val layout = findViewById<ConstraintLayout>(R.id.menuLayout)
-            layout.setBackgroundColor(Color.parseColor("#98FB98"))
+            layout.setBackgroundColor(Color.parseColor("#ff9c34"))
         }else if(prefs.getString("reply", "<unset>") == "blue"){
             val layout = findViewById<ConstraintLayout>(R.id.menuLayout)
             layout.setBackgroundColor(Color.parseColor("#87CEFA"))

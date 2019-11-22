@@ -12,13 +12,13 @@
 
     <string-array name="colour_entries">
         <item>Blue</item>
-        <item>Green</item>
+        <item>Orange</item>
         <item>Pink</item>
     </string-array>
 
     <string-array name="colour_values">
         <item>blue</item>
-        <item>green</item>
+        <item>orange</item>
         <item>pink</item>
     </string-array>
 
