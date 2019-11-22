@@ -4,12 +4,16 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.LinearLayout
+import androidx.constraintlayout.widget.*
 import androidx.core.view.isVisible
+import androidx.preference.PreferenceManager
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,6 +26,7 @@ import io.reactivex.rxkotlin.merge
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.ValueEventListener
+import androidx.constraintlayout.widget.ConstraintLayout
 
 
 
@@ -64,6 +69,8 @@ class MainActivity : AppCompatActivity() {
     var locationX = -1
     var scoreId = ""
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         //val intent = Intent(this, MenuActivity::class.java)
@@ -82,6 +89,9 @@ class MainActivity : AppCompatActivity() {
         //requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
 
+
+
+
         setContentView(R.layout.activity_main)
 
 //        if (supportActionBar != null)
@@ -96,7 +106,6 @@ class MainActivity : AppCompatActivity() {
         for (i in 1..16) {
             randomNo.add(i)
         }
-
 
         boxes = arrayListOf(
             findViewById(R.id.btn1),
@@ -116,6 +125,19 @@ class MainActivity : AppCompatActivity() {
             findViewById(R.id.btn15),
             findViewById(R.id.btn16)
         )
+
+        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+        if(prefs.getString("reply", "<unset>") == "green"){
+            val layout = findViewById<ConstraintLayout>(R.id.mainLayout)
+            layout.setBackgroundColor(Color.parseColor("#98FB98"))
+
+        }else if(prefs.getString("reply", "<unset>") == "blue"){
+            val layout = findViewById<ConstraintLayout>(R.id.mainLayout)
+            layout.setBackgroundColor(Color.parseColor("#87CEFA"))
+        }else{
+            val layout = findViewById<ConstraintLayout>(R.id.mainLayout)
+            layout.setBackgroundColor(Color.parseColor("#FFC0CB"))
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -295,6 +317,9 @@ class MainActivity : AppCompatActivity() {
             scoreId = ref.push().key.toString()
 
             userScore = text_view_countdown.text.toString()
+            val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+            name = prefs.getString("signature", "<unset>").toString()
+
             if(!userScore.equals("0:0")) {
                 val newScore = Score(name, userScore)
                 ref.child(scoreId).setValue(newScore)
