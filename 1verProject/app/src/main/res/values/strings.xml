@@ -29,4 +29,5 @@
     <string name="name_user">Name</string>
     <string name="colour_blue">Blue</string>
     <string name="colour">Colour</string>
+    <string name="settingsTitle">Settings</string>
 </resources>
