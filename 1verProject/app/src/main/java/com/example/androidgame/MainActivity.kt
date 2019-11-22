@@ -138,6 +138,8 @@ class MainActivity : AppCompatActivity() {
             val layout = findViewById<ConstraintLayout>(R.id.mainLayout)
             layout.setBackgroundColor(Color.parseColor("#FFC0CB"))
         }
+
+        name = prefs.getString("signature", "<unset>").toString()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -220,16 +222,18 @@ class MainActivity : AppCompatActivity() {
         reference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 var highest = 99999
-                 for (scoreSnapshot in dataSnapshot.children) {
 
-                     var score = scoreSnapshot.child("score").getValue(String::class.java)
-                     scor = score.toString()
-                     val separate = scor.split(":")
-                     val test = separate[0].toInt()*60 + separate[1].toInt()
-                     if(test < highest && test != 0){
-                         highest = test
-                         highestString = scor
-                     }
+                 for (scoreSnapshot in dataSnapshot.children) {
+                    if(name == scoreSnapshot.child("user").getValue(String::class.java)) {
+                        var score = scoreSnapshot.child("score").getValue(String::class.java)
+                        scor = score.toString()
+                        val separate = scor.split(":")
+                        val test = separate[0].toInt() * 60 + separate[1].toInt()
+                        if (test < highest && test != 0) {
+                            highest = test
+                            highestString = scor
+                        }
+                    }
                 }
                 textView_highscore.setText("Highest score: "+highestString.toString())
             }
