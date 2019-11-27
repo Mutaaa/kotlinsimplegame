@@ -29,7 +29,7 @@ class MenuActivity : AppCompatActivity() {
     }
 
     fun start3x3(view: View) {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, Mode3Activity::class.java)
         view.context.startActivity(intent)
         /*
         val intent = Intent(this, MainActivity::class.java)

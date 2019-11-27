@@ -1,5 +1,6 @@
 package com.example.androidgame
 
+
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -32,20 +33,21 @@ import androidx.constraintlayout.widget.ConstraintLayout
 private const val MAXIMUM_STOP_WATCH_LIMIT = 3600L
 private const val NUMBER_OF_SECONDS_IN_ONE_MINUTE = 60
 
-data class Score(
-    var user: String? = "",
-    var score: String? = ""
-) {
+//data class Score(
+//    var user: String? = "",
+//    var score: String? = ""
+//) {
+//
+//    fun toMap(): Map<String, Any?> {
+//        return mapOf(
+//            "user" to user,
+//            "score" to score
+//        )
+//    }
+//}
 
-    fun toMap(): Map<String, Any?> {
-        return mapOf(
-            "user" to user,
-            "score" to score
-        )
-    }
-}
+class Mode3Activity : AppCompatActivity() {
 
-class MainActivity : AppCompatActivity() {
 
     var name = "Player 1"
     lateinit var ref: DatabaseReference
@@ -220,7 +222,7 @@ class MainActivity : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 var highest = 99999
 
-                 for (scoreSnapshot in dataSnapshot.children) {
+                for (scoreSnapshot in dataSnapshot.children) {
                     if(name == scoreSnapshot.child("user").getValue(String::class.java)) {
                         var score = scoreSnapshot.child("score").getValue(String::class.java)
                         scor = score.toString()

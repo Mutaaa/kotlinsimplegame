@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#87CEFA"
-    tools:context=".three">
+    tools:context=".Mode3Activity">
 
     <Button
         android:id="@+id/button_reset"
