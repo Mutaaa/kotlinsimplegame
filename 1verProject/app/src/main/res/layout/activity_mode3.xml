@@ -5,6 +5,7 @@
     android:id="@+id/modeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#87CEFA"
     tools:context=".Mode3Activity">
 
     <Button
