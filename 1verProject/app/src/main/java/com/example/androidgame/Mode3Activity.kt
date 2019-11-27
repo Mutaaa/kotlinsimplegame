@@ -91,7 +91,7 @@ class Mode3Activity : AppCompatActivity() {
 
 
 
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_mode3)
 
 //        if (supportActionBar != null)
 //            supportActionBar?.hide()
