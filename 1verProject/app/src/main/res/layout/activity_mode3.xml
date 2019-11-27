@@ -25,9 +25,10 @@
         tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="350dp"
-        android:layout_height="300dp"
+        android:layout_width="370dp"
+        android:layout_height="360dp"
         android:background="#FFFFFF"
+        android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,12 +55,12 @@
 
     <TableLayout
         android:id="@+id/table_game"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="326dp"
+        android:layout_height="314dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="200dp"
         android:layout_marginRight="40dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="300dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -69,7 +70,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="5dp"
             android:layout_weight="1"
             android:gravity="center">
 
@@ -104,7 +105,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="5dp"
             android:layout_weight="1"
             android:gravity="center">
 
@@ -139,7 +140,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="5dp"
             android:layout_weight="1"
             android:gravity="center">
 
@@ -193,13 +194,14 @@
         android:id="@+id/textView_highscore"
         android:layout_width="304dp"
         android:layout_height="46dp"
+        android:layout_marginBottom="100dp"
         android:text="Highest score:"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.373"
+        app:layout_constraintHorizontal_bias="0.345"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122" />
+        app:layout_constraintVertical_bias="0.042" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
