@@ -46,8 +46,8 @@ class MenuActivity : AppCompatActivity() {
     }
 
     fun startSettings(view:View){
-        val intent2 = Intent(this,SettingsActivity::class.java)
-        view.context.startActivity(intent2)
+        val intent = Intent(this,SettingsActivity::class.java)
+        view.context.startActivity(intent)
     }
 
 

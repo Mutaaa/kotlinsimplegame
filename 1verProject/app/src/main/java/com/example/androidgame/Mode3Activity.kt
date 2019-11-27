@@ -33,18 +33,18 @@ import androidx.constraintlayout.widget.ConstraintLayout
 private const val MAXIMUM_STOP_WATCH_LIMIT = 3600L
 private const val NUMBER_OF_SECONDS_IN_ONE_MINUTE = 60
 
-//data class Score(
-//    var user: String? = "",
-//    var score: String? = ""
-//) {
-//
-//    fun toMap(): Map<String, Any?> {
-//        return mapOf(
-//            "user" to user,
-//            "score" to score
-//        )
-//    }
-//}
+data class Score2(
+    var user: String? = "",
+    var score: String? = ""
+) {
+
+    fun toMap(): Map<String, Any?> {
+        return mapOf(
+            "user" to user,
+            "score" to score
+        )
+    }
+}
 
 class Mode3Activity : AppCompatActivity() {
 
@@ -120,14 +120,14 @@ class Mode3Activity : AppCompatActivity() {
 
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         if(prefs.getString("reply", "<unset>") == "orange"){
-            val layout = findViewById<ConstraintLayout>(R.id.mainLayout)
+            val layout = findViewById<ConstraintLayout>(R.id.modeLayout)
             layout.setBackgroundColor(Color.parseColor("#ff9c34"))
 
         }else if(prefs.getString("reply", "<unset>") == "blue"){
-            val layout = findViewById<ConstraintLayout>(R.id.mainLayout)
+            val layout = findViewById<ConstraintLayout>(R.id.modeLayout)
             layout.setBackgroundColor(Color.parseColor("#87CEFA"))
         }else{
-            val layout = findViewById<ConstraintLayout>(R.id.mainLayout)
+            val layout = findViewById<ConstraintLayout>(R.id.modeLayout)
             layout.setBackgroundColor(Color.parseColor("#FFC0CB"))
         }
 
@@ -235,7 +235,7 @@ class Mode3Activity : AppCompatActivity() {
             var button = view as Button
             //println(button.text)
             if (button.text == "X") {
-                if (locationX + 1 < 16 && boxes[locationX + 1].text == clickedButtonText) {
+                if (locationX + 1 < 9 && boxes[locationX + 1].text == clickedButtonText) {
                     boxes[locationX + 1].setBackgroundColor(Color.parseColor("#FFFFFF"))
                     boxes[locationX + 1].setText("X")
                     boxes[locationX].setText(clickedButtonText)
@@ -251,20 +251,20 @@ class Mode3Activity : AppCompatActivity() {
                     locationX = locationX - 1
                     index16 = locationX
                     clickedButtonText = ""
-                } else if (locationX - 4 >= 0 && boxes[locationX - 4].text == clickedButtonText) {
-                    boxes[locationX - 4].setBackgroundColor(Color.parseColor("#FFFFFF"))
-                    boxes[locationX - 4].setText("X")
+                } else if (locationX - 3 >= 0 && boxes[locationX - 3].text == clickedButtonText) {
+                    boxes[locationX - 3].setBackgroundColor(Color.parseColor("#FFFFFF"))
+                    boxes[locationX - 3].setText("X")
                     boxes[locationX].setText(clickedButtonText)
                     boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
-                    locationX = locationX - 4
+                    locationX = locationX - 3
                     index16 = locationX
                     clickedButtonText = ""
-                } else if (locationX + 4 < 16 && boxes[locationX + 4].text == clickedButtonText) {
-                    boxes[locationX + 4].setBackgroundColor(Color.parseColor("#FFFFFF"))
-                    boxes[locationX + 4].setText("X")
+                } else if (locationX + 3 < 9 && boxes[locationX + 3].text == clickedButtonText) {
+                    boxes[locationX + 3].setBackgroundColor(Color.parseColor("#FFFFFF"))
+                    boxes[locationX + 3].setText("X")
                     boxes[locationX].setText(clickedButtonText)
                     boxes[locationX].setBackgroundResource(android.R.drawable.btn_default)
-                    locationX = locationX + 4
+                    locationX = locationX + 3
                     index16 = locationX
                     clickedButtonText = ""
                 }
