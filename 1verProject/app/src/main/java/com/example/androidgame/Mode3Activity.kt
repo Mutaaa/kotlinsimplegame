@@ -102,7 +102,7 @@ class Mode3Activity : AppCompatActivity() {
         }   .subscribe(text_view_countdown::setText)
             .let(disposable::add)
 
-        for (i in 1..16) {
+        for (i in 1..9) {
             randomNo.add(i)
         }
 
@@ -115,14 +115,7 @@ class Mode3Activity : AppCompatActivity() {
             findViewById(R.id.btn6),
             findViewById(R.id.btn7),
             findViewById(R.id.btn8),
-            findViewById(R.id.btn9),
-            findViewById(R.id.btn10),
-            findViewById(R.id.btn11),
-            findViewById(R.id.btn12),
-            findViewById(R.id.btn13),
-            findViewById(R.id.btn14),
-            findViewById(R.id.btn15),
-            findViewById(R.id.btn16)
+            findViewById(R.id.btn9)
         )
 
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
@@ -162,15 +155,8 @@ class Mode3Activity : AppCompatActivity() {
         btn7.text = randomNo[6].toString()
         btn8.text = randomNo[7].toString()
         btn9.text = randomNo[8].toString()
-        btn10.text = randomNo[9].toString()
-        btn11.text = randomNo[10].toString()
-        btn12.text = randomNo[11].toString()
-        btn13.text = randomNo[12].toString()
-        btn14.text = randomNo[13].toString()
-        btn15.text = randomNo[14].toString()
-        btn16.text = randomNo[15].toString()
 
-        index16 = randomNo.indexOf(16)
+        index16 = randomNo.indexOf(9)
         boxes[index16].setBackgroundColor(Color.parseColor("#FFFFFF"))
         boxes[index16].setText("X")
         locationX = index16
@@ -295,13 +281,13 @@ class Mode3Activity : AppCompatActivity() {
         //val arr = IntArray(15) { i -> 1 }
 
         //comment when want to test
-        val arr = IntArray(15) { i -> 0 }
+        val arr = IntArray(8) { i -> 0 }
 
         //dont need to do anything with this
-        val arr2 = IntArray(15) { i -> 1 }
+        val arr2 = IntArray(8) { i -> 1 }
 
         //comment these when want to test
-        for(x in 1..15){
+        for(x in 1..8){
             //println(x.toString()+1)
             if(boxes[x-1].text == x.toString()){
                 arr[x-1] = 1
@@ -314,7 +300,7 @@ class Mode3Activity : AppCompatActivity() {
         println(areEqual)
 
         if ( areEqual == true ) {
-            boxes[15].setText("16")
+            boxes[8].setText("9")
             boxes[index16].setBackgroundResource(android.R.drawable.btn_default)
             //onDestroy()
             scoreId = ref.push().key.toString()
