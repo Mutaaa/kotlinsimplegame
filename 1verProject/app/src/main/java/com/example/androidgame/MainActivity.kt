@@ -86,9 +86,6 @@ class MainActivity : AppCompatActivity() {
         //requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
 
-
-
-
         setContentView(R.layout.activity_main)
 
 //        if (supportActionBar != null)
