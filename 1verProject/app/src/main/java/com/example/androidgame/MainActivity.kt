@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
     //initiate array for random number
     val randomNo = ArrayList<Int>()
     var scores: MutableList<String> = mutableListOf()
-    var scor = "LOL"
+    var scor = ""
     var highestString = ""
     private val disposable = CompositeDisposable()
     private val displayInitialState by lazy { resources.getString(R.string._0_0) }
