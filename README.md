@@ -23,5 +23,6 @@ We started the project for Android Research Assignment. We wanted to continue Mo
 As Kornkanok said we were working every week during meetings or using Discord.
 
 I was working on Firebase and algorithms for the game. I connected the project with Firebase and decided what data we want to save, read and how to use it in our game. I also created the basic algorithm to make the game work. For documentation I did part about Firebase, UML and explaining how the game works.
+I worked really hard for this project, I've learned a lot of new things to make this project the best. I would give myself 5. We are proud of our game.
 
 
