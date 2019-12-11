@@ -26,3 +26,7 @@ I was working on Firebase and algorithms for the game. I connected the project w
 I worked really hard for this project, I've learned a lot of new things to make this project the best. I would give myself 5. We are proud of our game.
 
 
+**Nicole Ebken N2309**
+
+In the beginning i had the plan to continue the Mobile Application Development project. My group members told me, that they wanted to continue their Android project so i reconsidered and joined their team. So I was new to the whole thing and had to get into it. As before mentioned, we were working weekly on the project.
+I was working on the menu,settings and I have made the background .png with a transparent sky that can be changed. So besides coding I worked with Adobe Photoshop and Adobe Illustrator. I've made the Use Case Diagram and worked on the documentation. I would give myself a 4.
