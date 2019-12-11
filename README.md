@@ -16,3 +16,12 @@ My main work is programming in Kotlin. Also, presentation and some documentation
 I would give myself as a 5 for excellent work. I have done my best in this project.
 
 
+**Anna Paszcza N2305**
+
+We started the project for Android Research Assignment. We wanted to continue Mobile Research Assignment as Mobile Project but we changed our mind and decided to continue Android Research Assignment instead.
+
+As Kornkanok said we were working every week during meetings or using Discord.
+
+I was working on Firebase and algorithms for the game. I connected the project with Firebase and decided what data we want to save, read and how to use it in our game. I also created the basic algorithm to make the game work. For documentation I did part about Firebase, UML and explaining how the game works.
+
+
