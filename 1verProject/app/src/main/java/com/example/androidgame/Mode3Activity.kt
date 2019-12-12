@@ -196,7 +196,7 @@ class Mode3Activity : AppCompatActivity() {
 
         }else{
             boxes[index16].setBackgroundResource(android.R.drawable.btn_default)
-            boxes[index16].setText("16")
+            boxes[index16].setText("9")
 
         }
         button_start.isEnabled = !boolean
